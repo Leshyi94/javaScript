@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        /*1. Переменной 'a' присваиваем значение 2.
+        2. Перед присваиванием значения в переменную 'x' сначала решаем выражение. 
+        3. По приоритету вычисляем выражение в скобках. 'a' умножатся на двойку и полученный результат перезаписывается в эту же переменную ['a']. 2 * 2 = 4.
+        4. 1 складываем с переменной 'a' (=4) и получаем 5. Присваиваем переменной 'x' значение 5. 
+        5. Ответ: 'x' = 5; 'a' = 4.
+        */
+        let a = 2;
+        let x = 1 + (a *= 2);
+    </script>
+</body>
+
+</html>
