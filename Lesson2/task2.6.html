@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        // Запрашиваем у пользователя сумму для внесения
+        let userDeposit = prompt("Пополнение счёта. \nВведите сумму для внесения: ")
+
+        // Проверка введёного значения на число
+        if (!Number(userDeposit)) {
+            alert("Некорректно введена сумма")
+        }
+        // Порог минимальной суммы и отсекание отрицательных значений
+        else if (userDeposit < 1) {
+            alert("Минимальная сумма для внесения: 1 рубль")
+        }
+        else {
+            // Функция выбора правильного падежа
+            function rub(operation) {
+                /* Выбираем числа, где предпоследняя цифра является единицей, т.к. 11-19 имеют одно окончание (рублЕЙ).
+                1. С помощью остатка от деления берём последнюю цифру в числе.
+                2. Отнимаем из числа последнюю цифру.
+                3. Делим на 10, чтобы убрать 0 в конце числа.
+                4. Проверяем равна ли последняя цифра (которая была предпоследней) единице.
+                */
+                if ((userDeposit - userDeposit % 10) / 10 % 10 == 1) {
+                    return operation = "рублей"
+                }
+                // 0, 5, 6, 7, 8, 9 рублей
+                else if (userDeposit % 10 == 0 || userDeposit % 10 == 5 || userDeposit % 10 == 6 || userDeposit % 10 == 7 || userDeposit % 10 == 8 || userDeposit % 10 == 9) {
+                    return operation = "рублей"
+                }
+                // 1 рубль
+                else if (userDeposit % 10 == 1) {
+                    return operation = "рубль"
+                }
+                // 2, 3, 4 рубля
+                else if (userDeposit % 10 == 2 || userDeposit % 10 == 3 || userDeposit % 10 == 4) {
+                    return operation = "рубля"
+                }
+            }
+            // Вывод результата программы
+            alert(`"Ваша сумма в ${userDeposit} ${rub(userDeposit)} успешно зачислена"`)
+        }
+    </script>
+</body>
+
+</html>
