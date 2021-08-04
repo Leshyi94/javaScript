@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        let userNumber = prompt('Введите число в диапазоне [0-999]: ');
+        class Value {
+            constructor(units, tens, hundreds) {
+                this.units = userNumber % 10;
+                this.tens = Math.floor(userNumber / 10) % 10;
+                this.hundreds = Math.floor(userNumber / 100) % 10;
+            }
+        };
+        if (Number.isInteger(Number(userNumber)) && userNumber >= 0 && userNumber <= 999) {
+            let obj = new Value(userNumber);
+            console.log(obj);
+        }
+        else {
+            let obj = new Object;
+            console.log('Некорректный ввод');
+            console.log(obj);
+        };
+    </script>
+</body>
+
+</html>
